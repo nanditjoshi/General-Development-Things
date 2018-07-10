@@ -98,3 +98,26 @@ function json_response($status, $message, $data = false) {
     }
     echo json_encode($response);
 }
+
+function ajaxSuccessResponse($message = false, $data = null) {
+    header('Content-type: application/json');
+
+    $out = new stdClass();
+    $out->status = 'ok';
+    $out->message = $message ? $message : '';
+    if ($data != null) {
+        $out->data = $data;
+    }
+
+    echo json_encode($out);
+}
+
+function ajaxErrorResponse($error) {
+    header('Content-type: application/json');
+
+    $out = new stdClass();
+    $out->status = 'error';
+    $out->message = $error;
+
+    echo json_encode($out);
+}
