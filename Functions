@@ -156,3 +156,38 @@ function generatePassword($length = 8, $add_dashes = false, $available_sets = 'l
 			$dash_str .= $password;
 			return $dash_str;
 		}
+
+// EnvironmentVariables 
+public function getEnvironmentVariables(){
+        $envArr = [
+            'DB_IP_ADDRESS',
+            'DB_PORT',
+            'DB_NAME',
+            'DB_USERNAME',
+            'DB_PASSWORD',
+            'SMTP_SSL',
+            'SMTP_HOST',
+            'SMTP_USERNAME',
+            'SMTP_PASSWORD',
+            'SMTP_PORT',
+            'MAX_SESSIONS'
+        ];
+        print"*******************************************************";
+        print"<table border=0>";
+        foreach ($envArr as $envVar) {
+            echo "<tr><td>".$envVar."</td><td>" .getenv($envVar)."</tr>";
+        }
+        print"</table>";
+        print"*******************************************************";
+        print"<table border=0>";
+        foreach ($_SERVER as $key=>$val ) {
+            echo "<tr><td>".$key."</td><td>" .$val."</tr>";
+        }
+        print"</table>";
+        print"*******************************************************";
+        print"<table border=0>";
+        foreach ($_ENV as $key=>$val ) {
+            echo "<tr><td>".$key."</td><td>" .$val."</tr>";
+        }
+        print"</table>";
+    }
