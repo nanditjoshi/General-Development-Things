@@ -28,5 +28,9 @@ find $BACKUP_DIR/* -mtime +10 -exec rm {} \;
 -------------------------------------------------------------------------------------------------------
 https://www.2daygeek.com/linux-shell-script-mysql-mariadb-database-backup/
 
+To give execute permission
+sudo chmod +x mysql_backup.sh
+
+
 To run
 sh SCRIPTNAME.sh
